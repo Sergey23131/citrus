@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect} from "react";
+import {addUsers, loadUsers} from "./redux/actionsCrastors";
+import {useDispatch, useSelector} from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const fetchUsersWithThunk = () => async (dispatch) => {
+    let response = await (await fetch('https://jsonplaceholder.typicode.com/users')).json()
+    dispatch(loadUsers(response));
 }
 
-export default App;
+const addUserWithThunk =(payload)=> async (dispatch)=>{
+    let response = fetch('https://jsonplaceholder.typicode.com/users',{
+        method:"POST",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify({name:payload})
+    })
+let savedUser=await response.json();
+    dispatch(addUsers(savedUser));
+}
+
+
+export default function App() {
+
+    let state= useSelector(state=> state);
+    let dispatch = useDispatch();
+
+    useEffect(() => {
+dispatch(fetchUsersWithThunk())
+    }, [])
+
+    const xxx=(e)=>{
+        let user= {user:'vasya'}
+        dispatch(addUserWithThunk(user));
+    }
+
+    return (
+        <div className="App">
+        <button onClick={xxx}>Button</button>
+            {state.users.map(value=><div>{value.name}</div>)}
+        </div>
+    );
+}
