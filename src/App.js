@@ -1,31 +1,14 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {addUsers, loadUsers} from "./redux/functionsOfActions";
-
-const getUsers = async () => {
-    let response = await fetch('https://jsonplaceholder.typicode.com/users')
-        .then(value => value.json())
-    return response;
-}
-
-const newUser = async (dispatch, {name}) => {
-   let response = await fetch('https://jsonplaceholder.typicode.com/users', {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({name})
-
-    }).then(value => value.json());
-    dispatch(addUsers(response));
-}
+import {getUsers, newUser} from "./services/services";
 
 
 export default function App() {
     let state = useSelector(state => state);
     let dispatch = useDispatch();
     const {users} = state;
+    console.log(state)
 
     useEffect(() => {
         getUsers().then(value => dispatch(loadUsers(value)));
