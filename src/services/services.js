@@ -9,5 +9,5 @@ const instance = axios.create({
 });
 
 const discoverMovie = ()=> instance.get('discover/movie?page=1')
-
-export {discoverMovie}
+const baseDiscover = (part)=> instance.get(part)
+export {discoverMovie,baseDiscover}
