@@ -11,6 +11,6 @@ const instance = axios.create({
 const discoverMovie = () => instance.get('discover/movie?page=1')
 
 
-const averageOfMovies=()=> instance.get('genre/movie/list')
+const genresOfMovies=()=> instance.get('genre/movie/list')
 
-export {discoverMovie,averageOfMovies}
+export {discoverMovie,genresOfMovies}

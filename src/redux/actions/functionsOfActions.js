@@ -1,12 +1,12 @@
-import {LOAD_AVERAGE, LOAD_MOVIES} from "./actions";
+import {LOAD_GENRES, LOAD_MOVIES} from "./actions";
 
 
 const loadMovies = (payload) => {
     return {type: LOAD_MOVIES, payload}
 }
 
-const loadAverages =(payload)=>{
-    return{type:LOAD_AVERAGE,payload}
+const loadGenres =(payload)=>{
+    return{type:LOAD_GENRES,payload}
 }
 
-export {loadMovies,loadAverages}
+export {loadMovies,loadGenres}

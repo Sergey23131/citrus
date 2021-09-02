@@ -1,8 +1,8 @@
 import {useEffect} from "react";
-import {averageOfMovies, discoverMovie} from "./services/services";
+import {discoverMovie, genresOfMovies} from "./services/services";
 import {useDispatch, useSelector} from "react-redux";
-import {loadAverages, loadMovies} from "./redux/actions/functionsOfActions";
-import {averageReducer} from "./redux/reducers/reducer_average";
+import {loadGenres, loadMovies} from "./redux/actions/functionsOfActions";
+
 
 
 export default function App() {
@@ -13,13 +13,13 @@ export default function App() {
     });
 
     let aver = useSelector(state => {
-        let {averageReducer} = state;
-        return averageReducer;
+        let {genresReducer} = state;
+        return genresReducer;
     })
 
     let dispatch = useDispatch()
     let {movies} = films;
-    let {averages}=aver;
+    let {genres}=aver;
     console.log(aver)
 
 
@@ -28,7 +28,7 @@ export default function App() {
     }, [])
 
     useEffect(()=>{
-        averageOfMovies().then(value=> dispatch(loadAverages(value.data)))
+        genresOfMovies().then(value=> dispatch(loadGenres(value.data)))
     })
 
 
