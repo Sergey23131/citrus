@@ -1,3 +1,0 @@
-const LOAD_MOVIES = "LOAD_MOVIES";
-
-export {LOAD_MOVIES}
