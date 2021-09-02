@@ -12,15 +12,15 @@ export default function App() {
         return reducer;
     });
 
-    let averages = useSelector(state => {
+    let aver = useSelector(state => {
         let {averageReducer} = state;
         return averageReducer;
     })
 
     let dispatch = useDispatch()
-
     let {movies} = films;
-    console.log(films)
+    let {averages}=aver;
+    console.log(aver)
 
 
     useEffect(() => {
