@@ -1,13 +1,13 @@
-import {LOAD_AVERAGE} from "../actions/actions";
+import { LOAD_GENRES} from "../actions/actions";
 
-let averageState = {
-    averages: []
+let genresState = {
+    genres: []
 };
 
-export const averageReducer = (state = averageState, action) => {
+export const genresReducer = (state = genresState, action) => {
     switch (action.type) {
-        case LOAD_AVERAGE:
-            return {...state, averages: [...action.payload]}
+        case LOAD_GENRES:
+            return {...state, genres: [...action.payload]}
         default:
             return state;
     }
