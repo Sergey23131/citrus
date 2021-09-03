@@ -28,8 +28,8 @@ export default function App() {
     }, [])
 
     useEffect(()=>{
-        genresOfMovies().then(value=> dispatch(loadGenres(value.data)))
-    })
+        genresOfMovies().then(value=> dispatch(loadGenres(value.data.genres)))
+    },[])
 
 
     return (
