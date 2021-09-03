@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {genresOfMovies} from "../../services/services";
+import {addGenres, genresOfMovies} from "../../services/services";
 import {loadGenres} from "../../redux/actions/functionsOfActions";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -21,14 +21,13 @@ export default function Genres({info}) {
 
     let a = () => {
         genresList = genre_ids.map(genreId => genres.find(el => el.id === genreId))
-
     }
     a()
-    console.log(genresList)
+
 
     return (
         <div className="Genres">
-            {genresList.map(value=>JSON.stringify(value.name))}
+
         </div>
     );
 }

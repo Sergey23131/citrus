@@ -10,7 +10,8 @@ const instance = axios.create({
 
 const discoverMovie = () => instance.get('discover/movie?page=1')
 
-
 const genresOfMovies=()=> instance.get('genre/movie/list')
 
-export {discoverMovie,genresOfMovies}
+const addGenres=()=> instance.post('')
+
+export {discoverMovie,genresOfMovies,addGenres}
