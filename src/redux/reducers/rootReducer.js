@@ -5,4 +5,5 @@ import {genresReducer} from "./reducer_average";
 
 
 
+
 export const rootReducer=combineReducers({reducer,genresReducer})
