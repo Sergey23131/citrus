@@ -13,25 +13,13 @@ export default function App() {
         return reducer;
     });
 
-    let aver = useSelector(state => {
-        let {genresReducer} = state;
-        return genresReducer;
-    })
 
     let dispatch = useDispatch()
     let {movies} = films;
-    let {genres} = aver;
-
-console.log(movies)
 
     useEffect(() => {
         discoverMovie().then(value => dispatch(loadMovies(value.data.results)))
     }, [])
-
-    useEffect(() => {
-        genresOfMovies().then(value => dispatch(loadGenres(value.data.genres)))
-    }, [])
-
 
     return (
         <div className="App">
@@ -41,7 +29,7 @@ console.log(movies)
                     <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} alt=''/> <br/>
                     {value.overview} <br/>
                     {value.vote_average}/10
-                    { genres.map(item=> <Genres key={item.id} item={item} info={value}/>)}
+                        {<Genres key={value.id} info={value}/>}
                 </div>)}}
 
         </div>

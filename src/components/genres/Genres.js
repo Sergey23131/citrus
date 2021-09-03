@@ -1,19 +1,34 @@
-export default function Genres({item, info}) {
+import {useEffect} from "react";
+import {genresOfMovies} from "../../services/services";
+import {loadGenres} from "../../redux/actions/functionsOfActions";
+import {useDispatch, useSelector} from "react-redux";
+
+export default function Genres({info}) {
     let genresList;
-    let{genre_ids}=info;
+    let {genre_ids} = info;
+    let dispatch = useDispatch()
 
-/* let a = () => {
+    let aver = useSelector(state => {
+        let {genresReducer} = state;
+        return genresReducer;
+    })
 
+    let {genres} = aver;
 
-     genresList = genre_ids.map(genreId => item.find(el => el.id === genreId))
- }
+    useEffect(() => {
+        genresOfMovies().then(value => dispatch(loadGenres(value.data.genres)))
+    }, [])
 
-    a();*/
-    console.log(genre_ids)
+    let a = () => {
+        genresList = genre_ids.map(genreId => genres.find(el => el.id === genreId))
+
+    }
+    a()
+    console.log(genresList)
 
     return (
         <div className="Genres">
-
+            {genresList.map(value=>JSON.stringify(value.name))}
         </div>
     );
 }
