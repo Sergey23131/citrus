@@ -1,14 +1,15 @@
 export default function Genres({item, info}) {
     let genresList;
+    let{genre_ids}=info;
 
 /* let a = () => {
 
 
-        genresList = item.map(list => info.genre_ids.find(obj => obj.id === list.id))
-    }
+     genresList = genre_ids.map(genreId => item.find(el => el.id === genreId))
+ }
 
     a();*/
-    console.log(genresList)
+    console.log(genre_ids)
 
     return (
         <div className="Genres">
