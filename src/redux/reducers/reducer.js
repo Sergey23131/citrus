@@ -1,7 +1,7 @@
 import {LOAD_MOVIES} from "../actions/actions";
 
 let initialState = {
-    movies: []
+    movies: null
 };
 
 export const reducer = (state = initialState, action) => {

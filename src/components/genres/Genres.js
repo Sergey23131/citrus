@@ -1,10 +1,10 @@
-export default function Genres({info}) {
-    let {genresList} = info
+export default function Genres({array}) {
 
-    console.log(genresList)
     return (
         <div className="Genres">
-
+            {
+                array.map((genre, i) => <i key={genre?.id || i}>- {genre?.name} -</i>)
+            }
         </div>
     );
 }

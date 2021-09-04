@@ -1,7 +1,7 @@
 import { LOAD_GENRES} from "../actions/actions";
 
 let genresState = {
-    genres: []
+    genres: null
 };
 
 export const genresReducer = (state = genresState, action) => {
