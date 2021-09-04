@@ -12,27 +12,47 @@ export default function Movies() {
         return reducer;
     });
 
-
     let dispatch = useDispatch()
     let {movies} = films;
 
+
     useEffect(() => {
         discoverMovie().then(value => dispatch(loadMovies(value.data.results)))
-        genresOfMovies().then(value => dispatch(loadGenres(value.data.genres)))
-    }, [])
+    }, []);
 
-    console.log(movies)
+    useEffect(() => {
+
+        genresOfMovies().then(value => dispatch(loadGenres(value.data.genres)))
+    }, []);
+
+
+    let aver = useSelector(state => {
+        let {genresReducer} = state;
+        return genresReducer;
+    })
+
+    let {genres} = aver;
+
+    const mergedGenresMovies = movies.map((movie) => {
+        const {genre_ids} = movie;
+        const genresList = genre_ids.map(genreId => genres.find(el => el.id === genreId))
+
+        return {...movie, genresList}
+    })
+
+
 
     return (
         <div className="Movies">
-            {movies.map(value =>
+            {mergedGenresMovies.map(value =>
                 <div
                     key={value.id}><h3>{value.title}</h3><br/>
                     <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} alt=''/> <br/>
                     {value.overview} <br/>
-                    {value.vote_average}/10
-                    {<Genres key={value.id} info={value}/>}
-                </div>)}}
+                    {value.vote_average}/10 <br/>
+
+          {/*  {<Genres key={value.id} info={value}/>}*/}
+                </div>)}
 
         </div>
     );
