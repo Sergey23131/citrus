@@ -54,21 +54,10 @@ const scrollHandler = (e)=>{
             {
                 movies && movies.map(value => <Movie key={value.id} value={value}/>)
             }
-            {/*{movies.map(value =>
-                <div
-                    key={value.id}><h3>{value.title}</h3><br/>
-                    <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} alt=''/> <br/>
-                    {value.overview} <br/>
-                    {value.vote_average}/10 <br/>
 
-                    <PosterPreview key={value.id} item={value}/>
-                    <StarsRating key={value.id} item={value}/>
-                    <MovieInfo key={value.id} item={value}/>
-                    <GenreBadge key={value.id} item={value}/>
-                    <UserInfo key={value.id} item={value}/>
 
-                </div>)}
-*/}
+
+
         </div>
     );
 }

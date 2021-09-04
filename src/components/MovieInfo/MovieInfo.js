@@ -1,7 +1,7 @@
-export default function MovieInfo() {
+export default function MovieInfo({item}) {
     return (
         <div className="MovieInfo">
-            sds
+            {item.overview}
         </div>
     );
 }
