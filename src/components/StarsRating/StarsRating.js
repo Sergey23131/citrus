@@ -4,9 +4,6 @@ export default function StarsRating({item}) {
 
 
 
-    const ratings= document.querySelectorAll('.Rating_active')
-    ratings.style.width = `100%`
-
 
     return (
         <div className="StarsRating">
