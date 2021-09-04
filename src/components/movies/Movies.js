@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {discoverMovie} from "../../services/services";
-import {loadMovies} from "../../redux/actions/functionsOfActions";
+import {discoverMovie, genresOfMovies} from "../../services/services";
+import {loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
 import Genres from "../genres/Genres";
 
 export default function Movies() {
@@ -18,6 +18,7 @@ export default function Movies() {
 
     useEffect(() => {
         discoverMovie().then(value => dispatch(loadMovies(value.data.results)))
+        genresOfMovies().then(value => dispatch(loadGenres(value.data.genres)))
     }, [])
 
     console.log(movies)
