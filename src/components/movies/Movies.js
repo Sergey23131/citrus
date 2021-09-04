@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {discoverMovie} from "../../services/services";
-import {loadMovies} from "../../redux/actions/functionsOfActions";
+import {discoverMovie, genresOfMovies} from "../../services/services";
+import {loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
 import Genres from "../genres/Genres";
 
 export default function Movies() {
@@ -12,26 +12,48 @@ export default function Movies() {
         return reducer;
     });
 
-
     let dispatch = useDispatch()
     let {movies} = films;
 
-    useEffect(() => {
-        discoverMovie().then(value => dispatch(loadMovies(value.data.results)))
-    }, [])
 
-    console.log(movies)
+    useEffect(() => {
+        discoverMovie().then(value => dispatch(loadMovies(value.data)))
+    }, []);
+
+    useEffect(() => {
+        genresOfMovies().then(value => dispatch(loadGenres(value.data)))
+    }, []);
+
+
+
+    let aver = useSelector(state => {
+        let {genresReducer} = state;
+        return genresReducer;
+    })
+    let {genres} = aver;
+
+
+    const mergedGenresMovies = movies.map((movie) => {
+        const {genre_ids} = movie;
+        const genresList = genre_ids.map(genreId => genres.find(el => el.id === genreId))
+        return {...movie, genresList}
+    })
+
+    /*Pagination*/
+
+
+
 
     return (
         <div className="Movies">
-            {movies.map(value =>
+            {mergedGenresMovies.map(value =>
                 <div
                     key={value.id}><h3>{value.title}</h3><br/>
                     <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} alt=''/> <br/>
                     {value.overview} <br/>
-                    {value.vote_average}/10
-                    {<Genres key={value.id} info={value}/>}
-                </div>)}}
+                    {value.vote_average}/10 <br/>
+
+                </div>)}
 
         </div>
     );
