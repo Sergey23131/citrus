@@ -8,7 +8,7 @@ const instance = axios.create({
     }
 });
 
-const discoverMovie = () => instance.get('discover/movie?page=1')
+const discoverMovie = (currentPage) => instance.get(`discover/movie?page=${currentPage}`)
 
 const genresOfMovies=()=> instance.get('genre/movie/list')
 
