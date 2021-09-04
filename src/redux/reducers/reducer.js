@@ -7,7 +7,7 @@ let initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_MOVIES:
-            return {...state, movies: [...action.payload]}
+            return {...state, movies: [...action.payload.results]}
         default:
             return state;
     }

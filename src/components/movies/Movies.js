@@ -17,28 +17,30 @@ export default function Movies() {
 
 
     useEffect(() => {
-        discoverMovie().then(value => dispatch(loadMovies(value.data.results)))
+        discoverMovie().then(value => dispatch(loadMovies(value.data)))
     }, []);
 
     useEffect(() => {
-
-        genresOfMovies().then(value => dispatch(loadGenres(value.data.genres)))
+        genresOfMovies().then(value => dispatch(loadGenres(value.data)))
     }, []);
+
 
 
     let aver = useSelector(state => {
         let {genresReducer} = state;
         return genresReducer;
     })
-
     let {genres} = aver;
+
 
     const mergedGenresMovies = movies.map((movie) => {
         const {genre_ids} = movie;
         const genresList = genre_ids.map(genreId => genres.find(el => el.id === genreId))
-
         return {...movie, genresList}
     })
+
+    /*Pagination*/
+
 
 
 
@@ -51,7 +53,6 @@ export default function Movies() {
                     {value.overview} <br/>
                     {value.vote_average}/10 <br/>
 
-          {/*  {<Genres key={value.id} info={value}/>}*/}
                 </div>)}
 
         </div>
