@@ -1,21 +1,25 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {discoverMovie, genresOfMovies} from "../../services/services";
-import {loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
-import PosterPreview from "../PosterPreview/PosterPreview";
-import StarsRating from "../StarsRating/StarsRating";
-import MovieInfo from "../MovieInfo/MovieInfo";
-import GenreBadge from "../GenreBadge/GenreBadge";
-import UserInfo from "../UserInfo/UserInfo";
+import { loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
+import './Movies.css';
 import {Movie} from "../../Movie/Movie";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+} from "react-router-dom";
+import MoviesListCard from "../MoviesListCard/MoviesListCard";
+
 
 export default function Movies() {
-    const [currentPage,setCurrentPage]=useState(1);
-    const [fetching,setFetching]=useState(true)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [fetching, setFetching] = useState(true)
 
-    let {movies} = useSelector(({ reducer }) => reducer);
-    let {genres} = useSelector(({ genresReducer }) => genresReducer)
+    let {movies} = useSelector(({reducer}) => reducer);
+    let {genres} = useSelector(({genresReducer}) => genresReducer)
     let dispatch = useDispatch()
+
 
     useEffect(() => {
         if (fetching) {
@@ -23,41 +27,42 @@ export default function Movies() {
                 dispatch(loadMovies(value.data))
                 setCurrentPage(prevState => prevState + 1)
             })
-                .finally(()=> setFetching(false));
+                .finally(() => setFetching(false));
         }
         if (!genres) {
             genresOfMovies().then(value => dispatch(loadGenres(value.data)))
         }
     }, [fetching]);
 
+
     /*Pagination*/
 
-    useEffect(()=>{
-        document.addEventListener('scroll',scrollHandler)
+    useEffect(() => {
+        document.addEventListener('scroll', scrollHandler)
 
-        return function (){
-        document.removeEventListener('scroll',scrollHandler)
+        return function () {
+            document.removeEventListener('scroll', scrollHandler)
         };
-        },[])
+    }, [])
 
-const scrollHandler = (e)=>{
-    if (e.target.documentElement.scrollHeight-(e.target.documentElement.scrollTop+window.innerHeight)<100 ){
-        setFetching(true)
-        window.scrollTo(0, 0)
-    }
+    const scrollHandler = (e) => {
+        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 20) {
+            setFetching(true)
+            window.scrollTo(0, 0)
+        }
     }
 
 
     return (
+        <Router>
         <div className="Movies">
 
             {
                 movies && movies.map(value => <Movie key={value.id} value={value}/>)
             }
 
-
-
-
         </div>
+            <Route path={'/movie'} component={MoviesListCard}/>
+        </Router>
     );
 }

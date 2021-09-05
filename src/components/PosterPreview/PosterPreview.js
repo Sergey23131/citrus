@@ -1,4 +1,4 @@
-import Movies from "../movies/Movies";
+import './Poster.css';
 
 export default function PosterPreview({item}) {
     return (

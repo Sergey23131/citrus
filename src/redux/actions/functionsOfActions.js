@@ -1,4 +1,4 @@
-import {LOAD_GENRES, LOAD_MOVIES} from "./actions";
+import { LOAD_GENRES, LOAD_MOVIES} from "./actions";
 
 
 const loadMovies = (payload) => {
@@ -8,5 +8,7 @@ const loadMovies = (payload) => {
 const loadGenres = (payload) => {
     return {type: LOAD_GENRES, payload}
 }
+
+
 
 export {loadMovies, loadGenres}
