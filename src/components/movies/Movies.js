@@ -52,7 +52,6 @@ export default function Movies() {
         }
     }
 
-
     return (
         <Router>
         <div className="Movies">
@@ -62,7 +61,9 @@ export default function Movies() {
             }
 
         </div>
-            <Route path={'/movie'} component={MoviesListCard}/>
+            <Route path={'/movie/:id'} render={(props)=>{
+                return <MoviesListCard {...props}/>
+            }}/>
         </Router>
     );
 }

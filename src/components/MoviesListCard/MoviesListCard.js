@@ -1,17 +1,19 @@
 import {useEffect, useState} from "react";
 import {getMovieById} from "../../services/services";
 
-export default function MoviesListCard() {
+export default function MoviesListCard({match:{params:{id}}}) {
+
     let[movieByID,setMovieById]=useState([]);
 
     useEffect(()=>{
-        getMovieById().then(value => setMovieById(value.data))
+        getMovieById(id).then(value => setMovieById(value.data))
     },[])
 
-    console.log('apsdpas')
+    console.log(id)
+
     return (
-        <div className="PMoviesListCard">
-asdasd
+        <div className="MoviesListCard">
+
         </div>
     );
 }

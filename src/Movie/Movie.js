@@ -13,30 +13,30 @@ import {
 import MoviesListCard from "../components/MoviesListCard/MoviesListCard";
 
 
-
-
 export const Movie = ({value}) => {
     let {genres} = useSelector(({genresReducer}) => genresReducer)
 
     const genresForOneMovie = value.genre_ids.map(value => genres?.find(genre => genre.id === value));
+
 
     return (
 
         <div className={'Movie'}>
             <div className={'box'}>
                 <div className={'p_item'}>
-                <Link to={'/movie'}><h3>{value.title}</h3></Link>
-                <PosterPreview item={value}/>
-                <MovieInfo item={value}/>
-                <div className={'second-box'}>
-                    <GenreBadge array={genresForOneMovie}/>
-                    <div className={'third-box'}>
-                        <StarsRating item={value}/>
-                        <UserInfo item={value}/>
-                    </div>
+                    <Link to={{pathname: '/movie/' + value.id}}><h3>{value.title}</h3></Link>
+                    <PosterPreview item={value}/>
+                    <MovieInfo item={value}/>
+                    <div className={'second-box'}>
+                        <GenreBadge array={genresForOneMovie}/>
+                        <div className={'third-box'}>
+                            <StarsRating item={value}/>
+                            <UserInfo item={value}/>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     );
