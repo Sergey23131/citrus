@@ -1,17 +1,41 @@
 body {
     width: 100%;
-    height: 1000px;
     background-size: 100% 100%;
+}
+
+.Vote{
+    font-size: 36px;
+    font-weight: bold;
+    color: cornflowerblue;
 }
 
 .MoviesListCard {
     max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
+    padding: 1px;
+}
+.Poster_m{
+    width: 400px;
+    height: 600px;
+}
+.Wrap_box_list {
+    background-color: white;
+    display: flex;
+
 }
 
-.Wrap-box {
-    background-color: white;
-    height: 3000px;
+.Poster-box{
+    margin-top: 10px;
+    margin-left: 40px;
+}
 
+.info_box{
+    font-size: 25px;
+    margin: 120px 30px 30px;
+}
+
+.style-info{
+    font-size: 25px;
+    font-weight: bold;
 }

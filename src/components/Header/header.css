@@ -1,6 +1,6 @@
 .Wrapper {
     width: 100%;
-    height: 100px;
+
     display: flex;
     box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.6);
     background-color: white;
@@ -25,12 +25,20 @@
 .movie_b {
     font-size: 25px;
     padding-top: 25px;
-    padding-left: 120px;
+    padding-left: 50px;
     font-weight: bold;
+}
+.ChangeTheme{
+    width: 130px;
+    height: 30px;
+    margin-left: 50px;
+    padding-top: 50px;
+    border-radius: 20px;
+
 }
 
 .form_pos {
     padding-top: 20px;
-    padding-left: 200px;
+    padding-left: 100px;
     padding-right: 200px;
 }

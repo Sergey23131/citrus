@@ -4,6 +4,7 @@ import {discoverMovie, genresOfMovies} from "../../services/services";
 import {loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
 import './Movies.css';
 import {Movie} from "../../Movie/Movie";
+import Footer from "../Footer/Footer";
 
 
 export default function Movies() {
@@ -14,6 +15,7 @@ export default function Movies() {
     let {genres} = useSelector(({genresReducer}) => genresReducer)
     let dispatch = useDispatch()
 
+    document.body.style.backgroundImage = `url("https://st.depositphotos.com/2371801/2999/i/950/depositphotos_29990939-stock-photo-watercolor-leaves-seamless-autumn-background.jpg")`;
 
     useEffect(() => {
         if (fetching) {
@@ -41,8 +43,10 @@ export default function Movies() {
 
     const scrollHandler = (e) => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 20) {
-            setFetching(true)
-            window.scrollTo(0, 0)
+            setTimeout(() => {
+                setFetching(true)
+                window.scrollTo(0, 0)
+            }, 2500);
         }
     }
 
@@ -53,9 +57,7 @@ export default function Movies() {
             {
                 movies && movies.map(value => <Movie key={value.id} value={value}/>)
             }
-
+            <Footer/>
         </div>
-
-
     );
 }

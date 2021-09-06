@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import {Redirect, Switch} from "react-router";
 import MoviesListCard from "./components/MoviesListCard/MoviesListCard";
+import Footer from "./components/Footer/Footer";
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Router>
             <div className="App">
                 <Headers/>
+
             </div>
 
             <Switch>
@@ -24,5 +26,6 @@ export default function App() {
                 <Redirect exact to="/movies"/>
             </Switch>
         </Router>
+
     );
 }

@@ -1,5 +1,5 @@
 export default function GenreBadge({array}) {
-    console.log(array)
+
     return (
         <div className="GenreBadge">
           Genres:
