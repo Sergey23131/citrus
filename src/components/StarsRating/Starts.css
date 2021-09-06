@@ -1,7 +1,7 @@
 
 .StarsRating{
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     font-size: 40px;
     line-height: 0.75;
     padding-top: 20px;

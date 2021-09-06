@@ -8,6 +8,8 @@ import {
     Link,
     Route
 } from "react-router-dom";
+import {Redirect, Switch} from "react-router";
+import MoviesListCard from "./components/MoviesListCard/MoviesListCard";
 
 
 export default function App() {
@@ -17,9 +19,11 @@ export default function App() {
             <Headers/>
         </div>
 
-        <Route path={'/Home'} render={(props) => {
-            return <Movies {...props}/>
-        }}/>
+            <Switch>
+                <Route exact path={'/movies/:id'} component={MoviesListCard}/>
+                <Route exact path={'/movies'} component={Movies}/>
+                <Redirect exact to="/movies"/>
+            </Switch>
         </Router>
     );
 }

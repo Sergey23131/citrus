@@ -11,6 +11,7 @@ import {
     Link,
 } from "react-router-dom";
 import MoviesListCard from "../components/MoviesListCard/MoviesListCard";
+import UserImage from "../components/UserImage/UserImage";
 
 
 export const Movie = ({value}) => {
@@ -20,24 +21,23 @@ export const Movie = ({value}) => {
 
 
     return (
-
         <div className={'Movie'}>
+        <div className={'Movie-box'}>
             <div className={'box'}>
                 <div className={'p_item'}>
-                    <Link to={{pathname: '/movie/' + value.id}}><h3>{value.title}</h3></Link>
+                    <Link to={{pathname: '/movies/' + value.id}}><h3>{value.title}</h3></Link>
                     <PosterPreview item={value}/>
                     <MovieInfo item={value}/>
                     <div className={'second-box'}>
                         <GenreBadge array={genresForOneMovie}/>
                         <div className={'third-box'}>
                             <StarsRating item={value}/>
-                            <UserInfo item={value}/>
+                            <UserImage item={value}/>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
+        </div>
     );
 }

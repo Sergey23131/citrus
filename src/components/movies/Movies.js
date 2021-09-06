@@ -4,12 +4,6 @@ import {discoverMovie, genresOfMovies} from "../../services/services";
 import { loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
 import './Movies.css';
 import {Movie} from "../../Movie/Movie";
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-} from "react-router-dom";
-import MoviesListCard from "../MoviesListCard/MoviesListCard";
 
 
 export default function Movies() {
@@ -32,7 +26,7 @@ export default function Movies() {
         if (!genres) {
             genresOfMovies().then(value => dispatch(loadGenres(value.data)))
         }
-    }, [fetching]);
+    }, [dispatch, fetching, genres]);
 
 
     /*Pagination*/
@@ -53,7 +47,7 @@ export default function Movies() {
     }
 
     return (
-        <Router>
+
         <div className="Movies">
 
             {
@@ -61,9 +55,7 @@ export default function Movies() {
             }
 
         </div>
-            <Route path={'/movie/:id'} render={(props)=>{
-                return <MoviesListCard {...props}/>
-            }}/>
-        </Router>
+
+
     );
 }
