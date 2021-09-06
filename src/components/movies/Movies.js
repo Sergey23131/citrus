@@ -32,7 +32,7 @@ export default function Movies() {
         if (!genres) {
             genresOfMovies().then(value => dispatch(loadGenres(value.data)))
         }
-    }, [fetching]);
+    }, []);
 
 
     /*Pagination*/
@@ -53,17 +53,10 @@ export default function Movies() {
     }
 
     return (
-        <Router>
         <div className="Movies">
-
             {
                 movies && movies.map(value => <Movie key={value.id} value={value}/>)
             }
-
         </div>
-            <Route path={'/movie/:id'} render={(props)=>{
-                return <MoviesListCard {...props}/>
-            }}/>
-        </Router>
     );
 }

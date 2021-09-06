@@ -7,13 +7,13 @@ export default function MoviesListCard({match:{params:{id}}}) {
 
     useEffect(()=>{
         getMovieById(id).then(value => setMovieById(value.data))
-    },[])
-
-    console.log(id)
+    },[id])
 
     return (
         <div className="MoviesListCard">
-
+            {
+                JSON.stringify(movieByID)
+            }
         </div>
     );
 }

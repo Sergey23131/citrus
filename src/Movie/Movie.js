@@ -1,17 +1,11 @@
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import GenreBadge from "../components/GenreBadge/GenreBadge";
 import PosterPreview from "../components/PosterPreview/PosterPreview";
 import StarsRating from "../components/StarsRating/StarsRating";
 import MovieInfo from "../components/MovieInfo/MovieInfo";
 import UserInfo from "../components/UserInfo/UserInfo";
 import './Movie.css';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-} from "react-router-dom";
-import MoviesListCard from "../components/MoviesListCard/MoviesListCard";
-
+import { Link, } from "react-router-dom";
 
 export const Movie = ({value}) => {
     let {genres} = useSelector(({genresReducer}) => genresReducer)
@@ -24,7 +18,7 @@ export const Movie = ({value}) => {
         <div className={'Movie'}>
             <div className={'box'}>
                 <div className={'p_item'}>
-                    <Link to={{pathname: '/movie/' + value.id}}><h3>{value.title}</h3></Link>
+                    <Link to={{pathname: '/movies/' + value.id}}><h3>{value.title}</h3></Link>
                     <PosterPreview item={value}/>
                     <MovieInfo item={value}/>
                     <div className={'second-box'}>
