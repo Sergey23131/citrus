@@ -1,19 +1,21 @@
 import {useEffect, useState} from "react";
-import {getMovieById} from "../../services/services";
+
 import './MovieListCard.css';
+import {getMovieById} from "../../services/services";
 import GenreBadge from "../GenreBadge/GenreBadge";
 
 
 export default function MoviesListCard({match: {params: {id}}}) {
-
-    let [movieByID, setMovieById] = useState([]);
+    const [movieByID, setMovieById] = useState(null);
 
     useEffect(() => {
-        getMovieById(id).then(value => setMovieById(value.data))
-    }, [id])
+        getMovieById(id).then(value => setMovieById(value.data));
+    }, [id]);
 
-    document.body.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movieByID.backdrop_path})`
-    console.log(movieByID.overview)
+    // document.body.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movieByID.backdrop_path})`  // діч
+    if (!movieByID) {
+        return <div>Loading...</div>
+    }
 
     return (
         <div className="MoviesListCard">
@@ -32,3 +34,5 @@ export default function MoviesListCard({match: {params: {id}}}) {
         </div>
     );
 }
+
+
