@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {discoverMovie, genresOfMovies} from "../../services/services";
-import { loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
+import {loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
 import './Movies.css';
 import {Movie} from "../../Movie/Movie";
 

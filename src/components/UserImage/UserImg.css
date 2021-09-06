@@ -1,10 +1,10 @@
-.User_img{
+.User_img {
     height: 50px;
     width: 50px;
     margin: 20px;
     border-radius: 30px;
     background: plum;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
     padding: 1px;
 
 

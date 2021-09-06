@@ -1,24 +1,34 @@
 import {useEffect, useState} from "react";
 import {getMovieById} from "../../services/services";
 import './MovieListCard.css';
-export default function MoviesListCard({match:{params:{id}}}) {
+import GenreBadge from "../GenreBadge/GenreBadge";
 
-    let[movieByID,setMovieById]=useState([]);
 
-    useEffect(()=>{
+export default function MoviesListCard({match: {params: {id}}}) {
+
+    let [movieByID, setMovieById] = useState([]);
+
+    useEffect(() => {
         getMovieById(id).then(value => setMovieById(value.data))
-    },[id])
+    }, [id])
 
-    document.body.style.backgroundImage =`url(https://image.tmdb.org/t/p/w500${movieByID.backdrop_path})`
-    console.log(movieByID)
+    document.body.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movieByID.backdrop_path})`
+    console.log(movieByID.overview)
 
     return (
         <div className="MoviesListCard">
             <div className={'Wrap-box'}>
-            <h2>{movieByID.title}</h2>
-            <img src={`https://image.tmdb.org/t/p/w500${movieByID.poster_path}`} alt='Poster' className={'Poster'}/> <br/>
-        </div>
-
+                <div className={'Poster-box'}>
+                    <h2>{movieByID.title}</h2>
+                    <img src={`https://image.tmdb.org/t/p/w500${movieByID.poster_path}`} alt='Poster'
+                         className={'Poster'}/>
+                </div>
+                <GenreBadge array={movieByID.genres}/>
+                <p>Vote Average: {movieByID.vote_average}/10</p>
+                <p>Original Language: {movieByID.original_language}</p>
+                <p>Release Date: {movieByID.release_date}</p>
+                <p>Overview: {movieByID.overview}</p>
+            </div>
         </div>
     );
 }

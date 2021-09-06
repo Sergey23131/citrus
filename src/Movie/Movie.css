@@ -1,18 +1,18 @@
-.Movie-box{
+.Movie-box {
     height: 720px;
     background-color: white;
     margin: 0 0 16px 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
     padding: 1px;
 
 }
 
-.box{
+.box {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.third-box{
+.third-box {
     display: flex;
 }
