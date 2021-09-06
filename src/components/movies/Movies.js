@@ -1,16 +1,9 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {discoverMovie, genresOfMovies} from "../../services/services";
-import { loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { discoverMovie, genresOfMovies } from "../../services/services";
+import { loadGenres, loadMovies } from "../../redux/actions/functionsOfActions";
 import './Movies.css';
-import {Movie} from "../../Movie/Movie";
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-} from "react-router-dom";
-import MoviesListCard from "../MoviesListCard/MoviesListCard";
-
+import { Movie } from "../../Movie/Movie";
 
 export default function Movies() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -32,7 +25,7 @@ export default function Movies() {
         if (!genres) {
             genresOfMovies().then(value => dispatch(loadGenres(value.data)))
         }
-    }, []);
+    }, [dispatch, fetching, genres]);
 
 
     /*Pagination*/
