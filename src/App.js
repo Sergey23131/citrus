@@ -4,12 +4,11 @@ import Headers from "./components/Header/Headers";
 
 import {
     BrowserRouter as Router,
-    Link,
     Route
 } from "react-router-dom";
 import {Redirect, Switch} from "react-router";
 import MoviesListCard from "./components/MoviesListCard/MoviesListCard";
-import Footer from "./components/Footer/Footer";
+
 
 
 export default function App() {
