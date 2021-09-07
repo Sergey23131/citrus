@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {getMovieById} from "../../services/services";
 import './MovieListCard.css';
 import GenresOfMovie from "../GenresOfMovie/GenresOfMovie";
+import GenreBadge from "../GenreBadge/GenreBadge";
 
 
 export default function MoviesListCard({match: {params: {id}}}) {
@@ -26,7 +27,7 @@ export default function MoviesListCard({match: {params: {id}}}) {
                          className={'Poster_m'}/>
                 </div>
                 <div className={'info_box'}>
-               <GenresOfMovie item={movieByID.genres}/>
+               <h3><GenreBadge array={movieByID.genres}/></h3>
                     <p><span className={'style-info'}>Vote Average:</span> <span
                         className={'Vote'}> {movieByID.vote_average}</span>/10.</p>
                     <p><span className={'style-info'}>Original Language:</span> {movieByID.original_language}.</p>
