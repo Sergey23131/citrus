@@ -9,7 +9,8 @@ import UserImage from "../components/UserImage/UserImage";
 
 
 export const Movie = ({value}) => {
-    let {genres} = useSelector(({genresReducer}) => genresReducer)
+
+    const {genres} = useSelector(({genresReducer}) => genresReducer)
 
     const genresForOneMovie = value.genre_ids.map(value => genres?.find(genre => genre.id === value));
 

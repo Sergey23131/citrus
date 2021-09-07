@@ -2,7 +2,6 @@ import './Starts.css';
 
 export default function StarsRating({item}) {
 
-
     return (
 
         <div className="StarsRating">

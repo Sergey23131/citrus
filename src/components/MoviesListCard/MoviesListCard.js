@@ -4,10 +4,9 @@ import './MovieListCard.css';
 import GenresOfMovie from "../GenresOfMovie/GenresOfMovie";
 
 
-
 export default function MoviesListCard({match: {params: {id}}}) {
 
-    let [movieByID, setMovieById] = useState([]);
+    const [movieByID, setMovieById] = useState([]);
 
 
     useEffect(() => {
@@ -28,7 +27,7 @@ export default function MoviesListCard({match: {params: {id}}}) {
                          className={'Poster_m'}/>
                 </div>
                 <div className={'info_box'}>
-                    {/*<GenresOfMovie item={genres}/>*/}
+                    {/* <GenresOfMovie item={movieByID.genres}/>*/}
                     <p><span className={'style-info'}>Vote Average:</span> <span
                         className={'Vote'}> {movieByID.vote_average}</span>/10.</p>
                     <p><span className={'style-info'}>Original Language:</span> {movieByID.original_language}.</p>

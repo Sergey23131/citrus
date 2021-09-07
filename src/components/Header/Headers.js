@@ -6,8 +6,7 @@ import UserInfo from "../UserInfo/UserInfo";
 
 export default function Headers() {
 
-    const changeColor =()=>{
-
+    const changeColor = () => {
 
     }
 

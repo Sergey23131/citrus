@@ -11,9 +11,9 @@ export default function Movies() {
     const [currentPage, setCurrentPage] = useState(1);
     const [fetching, setFetching] = useState(true)
 
-    let {movies} = useSelector(({reducer}) => reducer);
-    let {genres} = useSelector(({genresReducer}) => genresReducer)
-    let dispatch = useDispatch()
+    const {movies} = useSelector(({reducer}) => reducer);
+    const {genres} = useSelector(({genresReducer}) => genresReducer)
+    const dispatch = useDispatch()
 
     document.body.style.backgroundImage = `url("https://st.depositphotos.com/2371801/2999/i/950/depositphotos_29990939-stock-photo-watercolor-leaves-seamless-autumn-background.jpg")`;
 
