@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {discoverMovie, genresOfMovies} from "../../services/services";
 import {loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
 import './Movies.css';
-import {Movie} from "../../Movie/Movie";
+import {Movie} from "../Movie/Movie";
 
 
 export default function Movies() {

@@ -1,11 +1,11 @@
 import {useSelector} from "react-redux";
-import GenreBadge from "../components/GenreBadge/GenreBadge";
-import PosterPreview from "../components/PosterPreview/PosterPreview";
-import StarsRating from "../components/StarsRating/StarsRating";
-import MovieInfo from "../components/MovieInfo/MovieInfo";
+import GenreBadge from "../GenreBadge/GenreBadge";
+import PosterPreview from "../PosterPreview/PosterPreview";
+import StarsRating from "../StarsRating/StarsRating";
+import MovieInfo from "../MovieInfo/MovieInfo";
 import './Movie.css';
 import {Link} from "react-router-dom";
-import UserImage from "../components/UserImage/UserImage";
+import UserImage from "../UserImage/UserImage";
 
 
 export const Movie = ({value}) => {
