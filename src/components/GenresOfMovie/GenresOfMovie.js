@@ -3,7 +3,7 @@ export default function GenresOfMovie({item}) {
         <div className="GenresOfMovie">
             Genres:
             {
-                item.map((genre, i) => <i key={genre?.id || i}> - {genre?.name} -</i>)
+                item && item.map((genre, i) => <i key={genre?.id || i}> - {genre?.name} -</i>)
             }
         </div>
     );

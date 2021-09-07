@@ -13,7 +13,6 @@ export default function MoviesListCard({match: {params: {id}}}) {
         getMovieById(id).then(value => setMovieById(value.data))
     }, [id])
 
-    console.log(movieByID);
 
     document.body.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movieByID.backdrop_path})`
 
@@ -27,7 +26,7 @@ export default function MoviesListCard({match: {params: {id}}}) {
                          className={'Poster_m'}/>
                 </div>
                 <div className={'info_box'}>
-                    {/* <GenresOfMovie item={movieByID.genres}/>*/}
+               <GenresOfMovie item={movieByID.genres}/>
                     <p><span className={'style-info'}>Vote Average:</span> <span
                         className={'Vote'}> {movieByID.vote_average}</span>/10.</p>
                     <p><span className={'style-info'}>Original Language:</span> {movieByID.original_language}.</p>
