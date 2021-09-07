@@ -26,8 +26,8 @@ export const Movie = ({value}) => {
                         <div className={'second-box'}>
                             <GenreBadge array={genresForOneMovie}/>
                             <div className={'third-box'}>
-                                <StarsRating item={value}/>
-                                <UserImage item={value}/>
+                                <div><StarsRating item={value}/></div>
+                                <div><UserImage item={value}/></div>
                             </div>
                         </div>
                     </div>

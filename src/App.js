@@ -17,14 +17,12 @@ export default function App() {
         <Router>
             <div className="App">
                 <Headers/>
-
+                <Switch>
+                    <Route exact path={'/movies/:id'} component={MoviesListCard}/>
+                    <Route exact path={'/movies'} component={Movies}/>
+                    <Redirect exact to="/movies"/>
+                </Switch>
             </div>
-
-            <Switch>
-                <Route exact path={'/movies/:id'} component={MoviesListCard}/>
-                <Route exact path={'/movies'} component={Movies}/>
-                <Redirect exact to="/movies"/>
-            </Switch>
         </Router>
 
     );

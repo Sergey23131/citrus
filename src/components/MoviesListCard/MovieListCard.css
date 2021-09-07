@@ -3,7 +3,7 @@ body {
     background-size: 100% 100%;
 }
 
-.Vote{
+.Vote {
     font-size: 36px;
     font-weight: bold;
     color: cornflowerblue;
@@ -15,27 +15,29 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
     padding: 1px;
 }
-.Poster_m{
+
+.Poster_m {
     width: 400px;
     height: 600px;
 }
+
 .Wrap_box_list {
     background-color: white;
     display: flex;
 
 }
 
-.Poster-box{
+.Poster-box {
     margin-top: 10px;
     margin-left: 40px;
 }
 
-.info_box{
+.info_box {
     font-size: 25px;
     margin: 120px 30px 30px;
 }
 
-.style-info{
+.style-info {
     font-size: 25px;
     font-weight: bold;
 }

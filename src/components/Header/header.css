@@ -1,6 +1,5 @@
 .Wrapper {
     width: 100%;
-
     display: flex;
     box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.6);
     background-color: white;
@@ -12,6 +11,52 @@
     height: 90px;
     width: 130px;
     padding-left: 50px;
+}
+
+.dark .Wrapper {
+    background-color: slategray;
+    border-bottom: 1px solid slategray;
+}
+
+.dark .Movie-box {
+    background-color: dimgrey;
+    color: white;
+    border-radius: 10px;
+}
+
+.dark .ChangeTheme {
+    background-color: white;
+    color: black;
+}
+
+.dark .User_img {
+    background: black;
+}
+
+.dark body {
+
+}
+
+.dark .Poster {
+    background: black;
+}
+
+.dark .MovieInfo:after {
+    background: linear-gradient(180deg, transparent, dimgrey 50%);
+}
+
+.dark .Wrap_box_list {
+    background-color: dimgrey;
+    border-radius: 10px;
+    color: white;
+}
+
+.dark .Footer-text {
+    color: white;
+}
+
+.dark .App {
+    background-color: black;
 }
 
 .form_input {
@@ -28,17 +73,20 @@
     padding-left: 50px;
     font-weight: bold;
 }
-.ChangeTheme{
+
+.ChangeTheme {
     width: 130px;
     height: 30px;
-    margin-left: 50px;
-    padding-top: 50px;
+    margin-left: 70px;
+    margin-top: 30px;
     border-radius: 20px;
+    color: white;
+    background-color: black;
 
 }
 
 .form_pos {
     padding-top: 20px;
-    padding-left: 100px;
+    padding-left: 50px;
     padding-right: 200px;
 }

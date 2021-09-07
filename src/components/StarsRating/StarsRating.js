@@ -1,23 +1,20 @@
-import './Starts.css';
+import './StarRate.css';
+import StarRatings from "react-star-ratings";
 
 export default function StarsRating({item}) {
+
+    const {vote_average} = item;
 
     return (
 
         <div className="StarsRating">
-            <div className={'Rating_body'}>
-                <div className={'Rating_active'}>
-                </div>
-                <div className={'Rating_items'}>
-                    <input type={"radio"} className={'Rating_item'} value={'1'} name={'rating'}/>
-                    <input type={"radio"} className={'Rating_item'} value={'2'} name={'rating'}/>
-                    <input type={"radio"} className={'Rating_item'} value={'3'} name={'rating'}/>
-                    <input type={"radio"} className={'Rating_item'} value={'4'} name={'rating'}/>
-                    <input type={"radio"} className={'Rating_item'} value={'5'} name={'rating'}/>
-                </div>
-            </div>
 
-            <div className={'Rating_value'}>{item.vote_average}</div>
+            <StarRatings
+                rating={vote_average}
+                starRatedColor="orange"
+                starDimension="25px"
+                starSpacing="5px"
+            />
         </div>
 
     );
