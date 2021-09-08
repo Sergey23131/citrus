@@ -22,7 +22,6 @@ export default function Headers() {
         })
     }
 
-
     const save = (e) => {
         e.preventDefault();
         console.log(findMovie)
