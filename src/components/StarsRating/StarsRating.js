@@ -6,7 +6,6 @@ export default function StarsRating({item}) {
     const {vote_average} = item;
 
     return (
-
         <div className="StarsRating">
 
             <StarRatings

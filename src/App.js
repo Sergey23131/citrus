@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import {Redirect, Switch} from "react-router";
 import MoviesListCard from "./components/MoviesListCard/MoviesListCard";
-
+import UserPage from "./components/UserPage/UserPage";
 
 
 export default function App() {
@@ -17,6 +17,7 @@ export default function App() {
             <div className="App">
                 <Headers/>
                 <Switch>
+                    <Route path={'/User/'} component={UserPage}/>
                     <Route exact path={'/movies/:id'} component={MoviesListCard}/>
                     <Route exact path={'/movies'} component={Movies}/>
                     <Redirect exact to="/movies"/>

@@ -59,6 +59,14 @@
     background-color: black;
 }
 
+.dark .info-box {
+    background-color: slategray;
+}
+
+.dark .main-info {
+    color: white;
+}
+
 .form_input {
     font-size: 20px;
     height: 50px;
@@ -88,5 +96,19 @@
 .form_pos {
     padding-top: 20px;
     padding-left: 50px;
-    padding-right: 200px;
+    padding-right: 20px;
+}
+
+.find_button {
+    font: bold 15px Arial;
+    text-decoration: none;
+    border: 1px solid #CCCCCC;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 120px;
+    text-align: center;
+    margin-right: 50px;
+    color: white;
+    background-color: black;
 }

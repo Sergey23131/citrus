@@ -6,7 +6,7 @@ import {useState} from "react";
 import {useSelector} from "react-redux";
 
 
-export default function Headers({history}) {
+export default function Headers() {
 
     const [findMovie, setFindMovie] = useState({});
     let [formState, setFormState] = useState({title: ''})
@@ -15,7 +15,6 @@ export default function Headers({history}) {
 
     const onFormInputChange = (e) => {
         setFormState({...formState, [e.target.name]: e.target.value})
-        console.log(history)
         movies.map(value => {
             if (String(value.title) === String(formState.title)) {
                 setFindMovie(value.id)
@@ -26,11 +25,11 @@ export default function Headers({history}) {
 
     const save = (e) => {
         e.preventDefault();
-        history.push('/movies/' + findMovie.id)
+        console.log(findMovie)
         setFormState({title: ''});
     }
 
-    const changeColor = (e) => {
+    const changeColor = () => {
         document.body.classList.toggle('dark');
     }
 
@@ -46,6 +45,7 @@ export default function Headers({history}) {
                     <input type="text" name={'title'} value={formState.title} onChange={onFormInputChange}
                            placeholder="Find movie" className={'form_input'}/>
                 </form>
+                <Link to={{pathname: '/movies/' + findMovie}} className={'find_button'}><h3>Find movie</h3></Link>
                 <UserImage/>
                 <UserInfo/>
             </div>
