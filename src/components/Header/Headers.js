@@ -5,11 +5,10 @@ import UserInfo from "../UserInfo/UserInfo";
 import {useState} from "react";
 import {useSelector} from "react-redux";
 
-
 export default function Headers() {
 
     const [findMovie, setFindMovie] = useState({});
-    let [formState, setFormState] = useState({title: ''})
+    const [formState, setFormState] = useState({title: ''})
 
     const {movies} = useSelector(({reducer}) => reducer);
 
@@ -21,6 +20,7 @@ export default function Headers() {
             }
         })
     }
+
 
     const save = (e) => {
         e.preventDefault();
