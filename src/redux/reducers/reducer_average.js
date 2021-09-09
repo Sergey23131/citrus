@@ -1,4 +1,4 @@
-import { LOAD_GENRES} from "../actions/actions";
+import {LOAD_GENRES} from "../actions/actions";
 
 let genresState = {
     genres: null

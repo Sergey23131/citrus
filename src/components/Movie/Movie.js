@@ -14,7 +14,6 @@ export const Movie = ({value}) => {
 
     const genresForOneMovie = value.genre_ids.map(value => genres?.find(genre => genre.id === value));
 
-
     return (
         <div className={'Movie'}>
             <div className={'Movie-box'}>

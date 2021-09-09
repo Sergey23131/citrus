@@ -1,5 +1,5 @@
 
-.Movies {
+.Movies_films {
     padding-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -22,5 +22,22 @@
     background-size: 200% auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     transition: .5s;
+}
 
+.GenreSearch {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.ButtonForGenres {
+    width: 15px;
+    font: bold 20px Arial;
+    text-decoration: none;
+    border: 1px solid #CCCCCC;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    background-color: black;
+    margin-left: 20px;
+    padding: 10px;
 }

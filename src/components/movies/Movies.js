@@ -1,9 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {discoverMovie, genresOfMovies} from "../../services/services";
-import {loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
+import {discoverMovie, genresOfMovies, getMoviesByGenre} from "../../services/services";
+import {loadFilteredFilms, loadGenres, loadMovies} from "../../redux/actions/functionsOfActions";
 import './Movies.css';
 import {Movie} from "../Movie/Movie";
+import {Link} from "react-router-dom";
 
 
 export default function Movies() {
@@ -44,8 +45,13 @@ export default function Movies() {
         }
     }, [fetching, fetchingBack, genres, dispatch]);
 
-    /*Pagination*/
+    /*GenreFilter*/
 
+    const genreFilter = (e) => {
+        getMoviesByGenre(e.target.value).then(value => dispatch(loadFilteredFilms(value.data)))
+    }
+
+    /*Pagination*/
 
     const next_page = () => {
         setFetching(true)
@@ -59,13 +65,23 @@ export default function Movies() {
 
 
     return (
-
         <div className="Movies">
-            {
-                movies && movies.map(value => <Movie key={value.id} value={value}/>)
-            }
-            <button onClick={previous_page} className={'ButtonsList'}>Previous page</button>
-            <button onClick={next_page} className={'ButtonsList'}>Next page</button>
+            <div className='GenreSearch'>
+                <select onChange={genreFilter} className={'selectGenre'}>
+                    {
+                        genres && genres.map(value => <option value={value.id}>{value.name}</option>)
+                    }
+                </select>
+                <Link to={'/genre/'} className={'ButtonForGenres'}>Find movies by genre</Link>
+            </div>
+            <div className="Movies_films">
+                {
+                    movies && movies.map(value => <Movie key={value.id} value={value}/>)
+                }
+
+                <button onClick={previous_page} className={'ButtonsList'}>Previous page</button>
+                <button onClick={next_page} className={'ButtonsList'}>Next page</button>
+            </div>
         </div>
     );
 }
